@@ -1,0 +1,305 @@
+HTML
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vortex No Zone Rules | Sessions</title>
+<style>
+:root{--bg:#050817;--panel:#0b1025;--panel2:#101832;--purple:#792cff;--violet:#b16cff;--blue:#29b7ff;--text:#f5f6ff;--muted:#aab4d4;--line:#28214c;--green:#36e6a1}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 70% 0%,#21104d 0,transparent 40%),var(--bg);color:var(--text);font:15px/1.5 Inter,system-ui,Segoe UI,Arial,sans-serif}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;border:0}.wrap{max-width:1320px;margin:auto;padding:0 24px}.top{height:76px;border-bottom:1px solid #242047;background:#070b1beF;display:flex;align-items:center;position:sticky;top:0;z-index:5;backdrop-filter:blur(14px)}.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%}.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:2px;cursor:pointer}
+
+/* Logo Image Styling */
+.logo-img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--violet);box-shadow:0 0 20px #812dff55}
+
+.brand small{display:block;font-size:9px;letter-spacing:3px;color:#c6b5ff}.links{display:flex;gap:27px;color:#d8dcf1}.links a{cursor:pointer}.links a:hover,.links a.active{color:#c69bff}.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;border-radius:9px;padding:12px 18px;background:linear-gradient(110deg,#6724f4,#922eff);color:white;font-weight:750;box-shadow:0 6px 24px #7025ee35}.btn.secondary{background:#0b1025;border:1px solid #55527b;box-shadow:none}.hero{padding:66px 0 28px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:540px;height:540px;right:8%;top:-70px;border-radius:50%;background:conic-gradient(from 30deg,transparent,#6e21ff,#22baff,#6e21ff,transparent);filter:blur(30px);opacity:.22}.heroGrid{display:grid;grid-template-columns:1fr .85fr;gap:30px;align-items:center;position:relative}.eyebrow{display:inline-block;padding:5px 13px;border-radius:30px;background:#28105b;color:#c48cff;font-weight:800;letter-spacing:1px;font-size:12px}.hero h1{font-size:clamp(42px,6vw,78px);line-height:.97;letter-spacing:-2px;margin:17px 0}.hero h1 span{display:block;color:#a55aff;text-shadow:0 0 34px #832dff55}.hero p{color:#c4cbe2;max-width:520px;font-size:17px}.orb{height:310px;display:grid;place-items:center;position:relative}.orb:before,.orb:after{content:"";position:absolute;border-radius:50%;transform:rotate(-28deg)}.orb:before{width:250px;height:250px;border:22px solid transparent;border-top-color:#9a43ff;border-left-color:#6428ff;border-bottom-color:#21b9ff;filter:drop-shadow(0 0 25px #8b35ff);animation:spin 18s linear infinite}.orb:after{width:165px;height:165px;border:13px solid transparent;border-right-color:#7b35ff;border-bottom-color:#22b9ff;filter:drop-shadow(0 0 16px #722cff);animation:spin 11s linear infinite reverse}@keyframes spin{to{transform:rotate(332deg)}}.orbText{position:absolute;bottom:0;right:0;color:#b76cff;font-weight:900;font-size:22px;text-align:center;transform:rotate(-7deg)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:26px;border:1px solid #3a2469;border-radius:12px;background:#090e22eF;overflow:hidden;position:relative}.stat{padding:17px 20px;border-right:1px solid #252044}.stat:last-child{border:0}.stat label{display:block;color:var(--muted);font-size:12px}.stat strong{font-size:17px}.section{padding:20px 0 38px}.cards{display:grid;grid-template-columns:1fr;gap:16px}.card{border:1px solid #272447;border-radius:13px;background:linear-gradient(145deg,#0b1024,#080d1c);overflow:hidden}.cardHead{padding:17px 19px;border-bottom:1px solid #24203e;display:flex;align-items:center;justify-content:space-between;font-size:17px;font-weight:800}.cardBody{padding:12px}
+
+.scrimColumns{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}
+.scrimCol{background:#070b1a;border:1px solid #24203e;border-radius:10px;padding:12px}
+.scrimCol h4{margin:0 0 10px 0;text-align:center;color:#c5a3ff;font-size:15px;border-bottom:1px solid #24203e;padding-bottom:6px}
+
+.event{display:grid;grid-template-columns:42px 1fr auto;gap:8px;align-items:center;padding:8px;margin-bottom:8px;border-radius:7px;background:#111831;border:1px solid #1d2441}.date{border:1px solid #6c36db;border-radius:6px;text-align:center;padding:3px;color:#c5a3ff;font-size:10px}.date b{display:block;font-size:15px;color:white}.event h3{font-size:12px;margin:0 0 2px}.meta{font-size:11px;color:var(--muted)}.smallbtn{padding:6px 8px;border-radius:6px;background:#7027f5;color:white;font-weight:700;font-size:11px;cursor:pointer}
+
+.result,.rank{display:flex;align-items:center;gap:12px;padding:12px 8px;border-bottom:1px solid #20233d}.result:last-child,.rank:last-child{border:0}.place{display:grid;place-items:center;width:35px;height:35px;border-radius:8px;background:#141d3a;font-weight:900}.result b,.rank b{display:block}.muted{color:var(--muted);font-size:12px}.rank{display:grid;grid-template-columns:28px 1fr auto auto;gap:10px}.rank .num{color:#b6c0df}.tabs{display:flex;gap:5px;padding:10px 12px}.tabs button{flex:1;padding:8px;background:#111832;color:#c5cce3;border-radius:6px;cursor:pointer}.tabs button.selected{background:#7027f5;color:white}.footer{border-top:1px solid #24203e;padding:22px 0;color:#aeb7d3;font-size:12px}.modal{position:fixed;inset:0;background:#02030bd9;display:none;align-items:center;justify-content:center;padding:20px;z-index:10}.modal.open{display:flex}.modalBox{max-width:480px;width:100%;padding:25px;border-radius:14px;border:1px solid #50308d;background:#0b1024}.modalBox input,.modalBox select{width:100%;padding:12px;border:1px solid #343052;border-radius:8px;background:#070b1a;color:white;margin:7px 0 14px}.close{float:right;background:transparent;color:#fff;font-size:23px;cursor:pointer}.notice{color:#b8c1dd;font-size:12px;margin-top:10px}.empty{padding:22px;color:var(--muted);text-align:center}
+
+/* Page view controller */
+.page-view { display: none; }
+.page-view.active { display: block; }
+
+@media(max-width:1100px){.scrimColumns{grid-template-columns:1fr}}
+@media(max-width:950px){.links{display:none}.heroGrid{grid-template-columns:1fr}.orb{height:230px}.cards{grid-template-columns:1fr}}@media(max-width:620px){.wrap{padding:0 14px}.top{height:66px}.brand{font-size:13px}.nav>.btn{padding:10px;font-size:12px}.hero{padding-top:42px}.hero h1{font-size:47px}.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid #252044}.orbText{right:5%;font-size:16px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap nav">
+
+<a class="brand" onclick="switchPage('home')">
+  <img src="https://api.iconify.design/game-icons:vortex.svg?color=%23b16cff" alt="Vortex Logo" class="logo-img">
+  <span>VORTEX<small>NO ZONE RULES</small></span>
+</a>
+
+<nav class="links">
+  <a onclick="switchPage('home')" id="nav-home" class="active">Home</a>
+  <a onclick="switchPage('sessions')" id="nav-sessions">Sessions</a>
+  <a onclick="switchPage('leaderboard')" id="nav-leaderboard">Leaderboard</a>
+  <a onclick="switchPage('rules')" id="nav-rules">Rules</a>
+  <a onclick="switchPage('support')" id="nav-support">Support</a>
+</nav>
+<button class="btn" onclick="openModal()">♟ Register</button>
+</div></header>
+
+<main class="wrap">
+
+<!-- 1. HOME PAGE -->
+<div id="page-home" class="page-view active">
+<section class="hero"><div class="heroGrid"><div>
+<span class="eyebrow">FORTNITE SESSIONS</span>
+<h1>VORTEX <span>NO ZONE RULES</span></h1>
+<p>Competitive Fortnite Sessions for players who want more. Join our community, participate in sessions, and prove your skills!</p>
+<a class="btn" href="https://discord.gg/HvU6gqaFdK" target="_blank" rel="noopener noreferrer">☁ Join Discord</a> <a class="btn secondary" onclick="switchPage('sessions')">View Sessions ↓</a>
+</div><div class="orb"><div class="orbText">NO ZONE<br>RULES</div></div></div>
+<div class="stats">
+<div class="stat"><label>▦ Next Session</label><strong id="countdown">Loading...</strong></div>
+<div class="stat"><label>🎮 Mode</label><strong>Solo / Duo / Trio</strong></div>
+<div class="stat"><label>◎ Region</label><strong>Europe</strong></div>
+<div class="stat"><label>♟ Participants</label><strong id="playerCount">0 / 100</strong></div>
+</div></section>
+
+<!-- Sessions -->
+<section class="section">
+<article class="card">
+<div class="cardHead">▦ Daily Session Times <span class="muted">Europe (EU)</span></div>
+<div class="cardBody">
+  <div class="scrimColumns">
+    <!-- SOLO COLUMN -->
+    <div class="scrimCol">
+      <h4>Solo Sessions</h4>
+      <div class="event"><div class="date">EU<b>16h</b></div><div><h3>Solo Session</h3><div class="meta">16:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+      <div class="event"><div class="date">EU<b>19h</b></div><div><h3>Solo Session</h3><div class="meta">19:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+      <div class="event"><div class="date">EU<b>22h</b></div><div><h3>Solo Session</h3><div class="meta">22:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+    </div>
+    <!-- DUO COLUMN -->
+    <div class="scrimCol">
+      <h4>Duo Sessions</h4>
+      <div class="event"><div class="date">EU<b>16h</b></div><div><h3>Duo Session</h3><div class="meta">16:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+      <div class="event"><div class="date">EU<b>19h</b></div><div><h3>Duo Session</h3><div class="meta">19:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+      <div class="event"><div class="date">EU<b>22h</b></div><div><h3>Duo Session</h3><div class="meta">22:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+    </div>
+    <!-- TRIO COLUMN -->
+    <div class="scrimCol">
+      <h4>Trio Sessions</h4>
+      <div class="event"><div class="date">EU<b>16h</b></div><div><h3>Trio Session</h3><div class="meta">16:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+      <div class="event"><div class="date">EU<b>19h</b></div><div><h3>Trio Session</h3><div class="meta">19:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+      <div class="event"><div class="date">EU<b>22h</b></div><div><h3>Trio Session</h3><div class="meta">22:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+    </div>
+  </div>
+<div class="notice">Click "Register" on any session to send your registration directly to our Discord.</div>
+</div></article>
+</section>
+
+<!-- Rules -->
+<section class="section">
+<article class="card">
+<div class="cardHead">📜 Session Rules</div>
+<div class="cardBody">
+  <p><b>1.</b> Respect all players, hosts, and moderators.</p>
+  <p><b>2.</b> No cheating, exploiting, stream-sniping, or intentional griefing.</p>
+  <p><b>3.</b> Follow host instructions and event-specific rules at all times.</p>
+  <p><b>4.</b> Match results must be accurate and can be verified by tournament staff.</p>
+  <p><b>5.</b> Rule violations may result in immediate disqualification or ban.</p>
+  <div class="notice">Customize these rules according to your specific session format before going live.</div>
+</div>
+</article>
+</section>
+
+<!-- Support -->
+<section class="section">
+<article class="card">
+<div class="cardHead">💬 Support & Community</div>
+<div class="cardBody">
+  <p>Questions about registration, rules, or results? Join our Discord server and contact the team.</p>
+  <a class="btn" href="https://discord.gg/HvU6gqaFdK" target="_blank" rel="noopener noreferrer">Join Discord ↗</a>
+</div>
+</article>
+</section>
+</div>
+
+<!-- 2. SESSIONS PAGE -->
+<div id="page-sessions" class="page-view">
+<section class="section">
+<article class="card">
+<div class="cardHead">▦ Daily Session Times <span class="muted">Europe (EU)</span></div>
+<div class="cardBody">
+  <div class="scrimColumns">
+    <div class="scrimCol">
+      <h4>Solo Sessions</h4>
+      <div class="event"><div class="date">EU<b>16h</b></div><div><h3>Solo Session</h3><div class="meta">16:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+      <div class="event"><div class="date">EU<b>19h</b></div><div><h3>Solo Session</h3><div class="meta">19:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+      <div class="event"><div class="date">EU<b>22h</b></div><div><h3>Solo Session</h3><div class="meta">22:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+    </div>
+    <div class="scrimCol">
+      <h4>Duo Sessions</h4>
+      <div class="event"><div class="date">EU<b>16h</b></div><div><h3>Duo Session</h3><div class="meta">16:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+      <div class="event"><div class="date">EU<b>19h</b></div><div><h3>Duo Session</h3><div class="meta">19:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+      <div class="event"><div class="date">EU<b>22h</b></div><div><h3>Duo Session</h3><div class="meta">22:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+    </div>
+    <div class="scrimCol">
+      <h4>Trio Sessions</h4>
+      <div class="event"><div class="date">EU<b>16h</b></div><div><h3>Trio Session</h3><div class="meta">16:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+      <div class="event"><div class="date">EU<b>19h</b></div><div><h3>Trio Session</h3><div class="meta">19:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+      <div class="event"><div class="date">EU<b>22h</b></div><div><h3>Trio Session</h3><div class="meta">22:00 UTC+2</div></div><button class="smallbtn" onclick="openModal()">Register</button></div>
+    </div>
+  </div>
+<div class="notice">Click "Register" on any session to send your registration directly to our Discord.</div>
+</div></article>
+</section>
+</div>
+
+<!-- 3. LEADERBOARD PAGE -->
+<div id="page-leaderboard" class="page-view">
+<section class="section">
+<article class="card">
+<div class="cardHead">♛ Leaderboard</div>
+<div class="tabs"><button class="selected" onclick="setMode(this,'Solo')">Solo</button><button onclick="setMode(this,'Duo')">Duo</button><button onclick="setMode(this,'Trio')">Trio</button></div>
+<div id="ranks"><div class="empty">The leaderboard will appear here once verified results are submitted.</div></div>
+</article>
+</section>
+</div>
+
+<!-- 4. RULES PAGE -->
+<div id="page-rules" class="page-view">
+<section class="section">
+<article class="card">
+<div class="cardHead">📜 Session Rules</div>
+<div class="cardBody">
+  <p><b>1.</b> Respect all players, hosts, and moderators.</p>
+  <p><b>2.</b> No cheating, exploiting, stream-sniping, or intentional griefing.</p>
+  <p><b>3.</b> Follow host instructions and event-specific rules at all times.</p>
+  <p><b>4.</b> Match results must be accurate and can be verified by tournament staff.</p>
+  <p><b>5.</b> Rule violations may result in immediate disqualification or ban.</p>
+  <div class="notice">Customize these rules according to your specific session format before going live.</div>
+</div>
+</article>
+</section>
+</div>
+
+<!-- 5. SUPPORT PAGE -->
+<div id="page-support" class="page-view">
+<section class="section">
+<article class="card">
+<div class="cardHead">💬 Support & Community</div>
+<div class="cardBody">
+  <p>Questions about registration, rules, or results? Join our Discord server and contact the team.</p>
+  <a class="btn" href="https://discord.gg/HvU6gqaFdK" target="_blank" rel="noopener noreferrer">Join Discord ↗</a>
+</div>
+</article>
+</section>
+</div>
+
+</main>
+
+<footer class="footer"><div class="wrap">✦ VORTEX NO ZONE RULES <span style="float:right">Community • Sessions • Fair Play</span><p>Fan-made community project. Not affiliated with Epic Games.</p></div></footer>
+
+<div class="modal" id="modal"><div class="modalBox"><button class="close" onclick="closeModal()">×</button><h2>Register for Session</h2><p class="muted">Enter your details to sign up – information will be sent directly to our Discord!</p><label>Epic / In-Game Name</label><input id="playerName" placeholder="Your in-game name"><label>Mode</label><select id="playerMode"><option>Solo</option><option>Duo</option><option>Trio</option></select><button class="btn" onclick="saveInterest()">Submit Registration</button><div id="formMsg" class="notice"></div></div></div>
+
+<script>
+function switchPage(pageId) {
+    document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + pageId).classList.add('active');
+
+    document.querySelectorAll('.links a').forEach(a => a.classList.remove('active'));
+    const activeNav = document.getElementById('nav-' + pageId);
+    if(activeNav) activeNav.classList.add('active');
+
+    window.scrollTo(0, 0);
+}
+
+let interested = 0;
+
+function openModal(){ document.getElementById('modal').classList.add('open'); }
+function closeModal(){ document.getElementById('modal').classList.remove('open'); }
+
+const targetDate = new Date(2026, 5, 20, 18, 0, 0).getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+    const countdownEl = document.getElementById('countdown');
+
+    if (distance < 0) {
+        countdownEl.textContent = "Session Active!";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    let text = "";
+    if (days > 0) text += days + "d ";
+    text += hours + "h " + minutes + "m " + seconds + "s";
+    
+    countdownEl.textContent = text;
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+function saveInterest() {
+    const name = document.getElementById('playerName').value.trim();
+    const mode = document.getElementById('playerMode').value;
+    const msg = document.getElementById('formMsg');
+
+    if (!name) {
+        msg.textContent = 'Please enter your in-game name.';
+        return;
+    }
+
+    const webhookURL = 'https://discord.com/api/webhooks/1560002085896986694/kM6t9VNo9skxMybdhZBRCBe3YASRVTum-2okINlMLXG6a6dnGh1Q8iNoRzmLa6_E2n5l';
+
+    msg.textContent = 'Sending...';
+
+    const payload = {
+        content: `New Session Registration! 🎮`,
+        embeds: [{
+            title: "New Registration",
+            color: 7941631,
+            fields: [
+                { name: "Player / Epic", value: name, inline: true },
+                { name: "Selected Mode", value: mode, inline: true }
+            ],
+            timestamp: new Date().toISOString()
+        }]
+    };
+
+    fetch(webhookURL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    .then(response => {
+        if (response.ok) {
+            interested++;
+            document.getElementById('playerCount').textContent = interested + ' Player' + (interested === 1 ? '' : 's') + ' / 100';
+            msg.textContent = 'Thank you, ' + name + '! Your registration was sent to Discord.';
+            document.getElementById('playerName').value = '';
+        } else {
+            msg.textContent = 'Error sending to Discord.';
+        }
+    })
+    .catch(error => {
+        msg.textContent = 'Network error while sending.';
+        console.error(error);
+    });
+}
+
+function setMode(btn, mode) {
+    document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    document.getElementById('ranks').innerHTML = '<div class="empty">The ' + mode + ' leaderboard will appear here once verified results are submitted.</div>';
+}
+
+document.getElementById('modal').addEventListener('click', e => {
+    if (e.target.id === 'modal') closeModal();
+});
+</script>
+</body></html>
